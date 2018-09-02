@@ -1,0 +1,4 @@
+D:\GitHub\WPFFramework\KibaFramework\Utility\bin\Debug\Utility.dll
+D:\GitHub\WPFFramework\KibaFramework\Utility\bin\Debug\Utility.pdb
+D:\GitHub\WPFFramework\KibaFramework\Utility\obj\Debug\Utility.dll
+D:\GitHub\WPFFramework\KibaFramework\Utility\obj\Debug\Utility.pdb

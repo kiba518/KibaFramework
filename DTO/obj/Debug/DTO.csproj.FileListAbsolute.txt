@@ -1,0 +1,5 @@
+D:\GitHub\WPFFramework\KibaFramework\DTO\bin\Debug\DTO.exe.config
+D:\GitHub\WPFFramework\KibaFramework\DTO\bin\Debug\DTO.exe
+D:\GitHub\WPFFramework\KibaFramework\DTO\bin\Debug\DTO.pdb
+D:\GitHub\WPFFramework\KibaFramework\DTO\obj\Debug\DTO.exe
+D:\GitHub\WPFFramework\KibaFramework\DTO\obj\Debug\DTO.pdb

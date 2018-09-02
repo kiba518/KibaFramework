@@ -1,0 +1,5 @@
+D:\GitHub\WPFFramework\KibaFramework\Proxy\bin\Debug\Proxy.dll
+D:\GitHub\WPFFramework\KibaFramework\Proxy\bin\Debug\Proxy.pdb
+D:\GitHub\WPFFramework\KibaFramework\Proxy\obj\Debug\Proxy.csprojResolveAssemblyReference.cache
+D:\GitHub\WPFFramework\KibaFramework\Proxy\obj\Debug\Proxy.dll
+D:\GitHub\WPFFramework\KibaFramework\Proxy\obj\Debug\Proxy.pdb
