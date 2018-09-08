@@ -19,6 +19,7 @@ namespace KibaFramework
         public WindowMain()
         {
             InitializeComponent();
+             
         }
     }
 }

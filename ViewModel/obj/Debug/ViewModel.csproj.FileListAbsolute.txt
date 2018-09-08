@@ -9,3 +9,14 @@ D:\GitHub\WPFFramework\KibaFramework\ViewModel\bin\Debug\Proxy.pdb
 D:\GitHub\WPFFramework\KibaFramework\ViewModel\bin\Debug\Utility.pdb
 D:\GitHub\WPFFramework\KibaFramework\ViewModel\obj\Debug\ViewModel.dll
 D:\GitHub\WPFFramework\KibaFramework\ViewModel\obj\Debug\ViewModel.pdb
+D:\GitHub\KibaFramework\ViewModel\bin\Debug\ViewModel.dll
+D:\GitHub\KibaFramework\ViewModel\bin\Debug\ViewModel.pdb
+D:\GitHub\KibaFramework\ViewModel\bin\Debug\DTO.exe
+D:\GitHub\KibaFramework\ViewModel\bin\Debug\Proxy.dll
+D:\GitHub\KibaFramework\ViewModel\bin\Debug\Utility.dll
+D:\GitHub\KibaFramework\ViewModel\bin\Debug\DTO.pdb
+D:\GitHub\KibaFramework\ViewModel\bin\Debug\Proxy.pdb
+D:\GitHub\KibaFramework\ViewModel\bin\Debug\Utility.pdb
+D:\GitHub\KibaFramework\ViewModel\obj\Debug\ViewModel.csprojResolveAssemblyReference.cache
+D:\GitHub\KibaFramework\ViewModel\obj\Debug\ViewModel.dll
+D:\GitHub\KibaFramework\ViewModel\obj\Debug\ViewModel.pdb

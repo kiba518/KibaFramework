@@ -30,6 +30,7 @@ namespace ViewModel
         {
             WindowMain = Application.Current.MainWindow; 
             SetUIElement();
+            UIElement.DataContext = this;
         }
       
         

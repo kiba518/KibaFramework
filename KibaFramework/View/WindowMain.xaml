@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KibaFramework"
         mc:Ignorable="d"
-        Title="KibaFramework" Height="500" Width="800" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen" >
+        Title="KibaFramework" Height="500" Width="800" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen" Icon="/Image/logo.ico" >
     <DockPanel>
         <StackPanel  DockPanel.Dock="Top" Background="Gainsboro">
-            <TextBlock TextAlignment="Left" Text="KibaFramework" Margin="20,20,0,0" Height="70" FontSize="36"></TextBlock>
+            <TextBlock TextAlignment="Left" Text="{Binding HeaderName,Mode=TwoWay}" Margin="20,20,0,0" Height="70" FontSize="36"></TextBlock>
         </StackPanel>
         <DockPanel DockPanel.Dock="Bottom">
             <StatusBar DockPanel.Dock="Bottom"  Height="24"  >
