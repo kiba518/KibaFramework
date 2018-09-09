@@ -45,8 +45,10 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\BaseCommand.cs" />
     <Compile Include="Base\BaseViewModel.cs" />
     <Compile Include="Helper\DispatcherHelper.cs" />
+    <Compile Include="User\VM_PageUser.cs" />
     <Compile Include="User\VM_WindowCreateUser.cs" />
     <Compile Include="VM_PageMain.cs" />
     <Compile Include="VM_WindowMain.cs" />

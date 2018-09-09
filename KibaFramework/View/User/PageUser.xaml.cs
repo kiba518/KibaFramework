@@ -14,11 +14,10 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace KibaFramework
-{
-     
-    public partial class PageMain : Page
+{ 
+    public partial class PageUser : Page
     {
-        public PageMain()
+        public PageUser()
         {
             InitializeComponent();
         }

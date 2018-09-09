@@ -57,6 +57,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="View\User\PageUser.xaml.cs">
+      <DependentUpon>PageUser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\User\WindowCreateUser.xaml.cs">
       <DependentUpon>WindowCreateUser.xaml</DependentUpon>
     </Compile>
@@ -70,6 +73,10 @@
     <Page Include="View\PageMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\User\PageUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\User\WindowCreateUser.xaml">
       <Generator>MSBuild:Compile</Generator>

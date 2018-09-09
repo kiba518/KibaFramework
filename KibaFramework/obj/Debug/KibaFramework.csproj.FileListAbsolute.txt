@@ -38,3 +38,6 @@ D:\GitHub\KibaFramework\KibaFramework\obj\Debug\View\WindowMain.baml
 D:\GitHub\KibaFramework\KibaFramework\obj\Debug\KibaFramework.g.resources
 D:\GitHub\KibaFramework\KibaFramework\obj\Debug\KibaFramework.Properties.Resources.resources
 D:\GitHub\KibaFramework\KibaFramework\obj\Debug\KibaFramework.csproj.GenerateResource.Cache
+D:\GitHub\KibaFramework\KibaFramework\obj\Debug\View\User\PageUser.g.cs
+D:\GitHub\KibaFramework\KibaFramework\obj\Debug\View\User\PageUser.baml
+D:\GitHub\KibaFramework\KibaFramework\obj\Debug\App.baml
