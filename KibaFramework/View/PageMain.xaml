@@ -9,6 +9,28 @@
       Title="PageMain">
 
     <DockPanel>
-        <TextBlock TextAlignment="Left" Text="我是PageMain" Margin="20,20,0,0" Height="70" FontSize="36"></TextBlock>
+        <StackPanel DockPanel.Dock="Top">
+            <TextBlock TextAlignment="Left"   Text="基础应用" Margin="20,20,0,0" Height="70" FontSize="36"></TextBlock>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" >
+            <GroupBox HorizontalAlignment="Left" Header="TextBox" Margin="10,0,0,0" >
+                <StackPanel Orientation="Vertical"  Margin="10" >
+                    <TextBox Text="{Binding TestTextBox.Text,Mode=TwoWay}" Margin="5"  FontSize="12"></TextBox>
+                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Height="24" >
+                        <Button Content="切换Kiba" Command="{Binding TabKibaCommand}" Width="70"></Button>
+                        <Button Content="切换518" Command="{Binding Tab518Command}" Width="70" Margin="10,0,0,0"></Button>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox HorizontalAlignment="Left" Header="TextBoxChange" Margin="10,0,0,0" >
+                <StackPanel Orientation="Vertical"  Margin="10" >
+                    <TextBox Text="{Binding ChangeTextBox.Text,Mode=TwoWay}" Margin="5"  FontSize="12"></TextBox> 
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+        <StackPanel>
+            <TextBlock  TextBlock.LineHeight="24" Height="24" Text="Footer" Margin="10"  FontSize="12"></TextBlock>
+        </StackPanel>
     </DockPanel>
 </Page>

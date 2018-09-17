@@ -47,6 +47,16 @@
   <ItemGroup>
     <Compile Include="Base\BaseCommand.cs" />
     <Compile Include="Base\BaseViewModel.cs" />
+    <Compile Include="DataControl\CheckBox.cs" />
+    <Compile Include="DataControl\DataGrid.cs" />
+    <Compile Include="DataControl\ListBox.cs" />
+    <Compile Include="DataControl\ComboBox.cs" />
+    <Compile Include="DataControl\Control.cs" />
+    <Compile Include="DataControl\Image.cs" />
+    <Compile Include="DataControl\ProgressBar.cs" />
+    <Compile Include="DataControl\TextBlock.cs" />
+    <Compile Include="DataControl\DatePicker.cs" />
+    <Compile Include="DataControl\TextBox.cs" />
     <Compile Include="Helper\DispatcherHelper.cs" />
     <Compile Include="User\VM_PageUser.cs" />
     <Compile Include="User\VM_WindowCreateUser.cs" />

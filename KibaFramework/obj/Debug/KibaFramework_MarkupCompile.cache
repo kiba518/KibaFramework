@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\GitHub\KibaFramework\KibaFramework\obj\Debug\
+E:\GitHub\KibaFramework\KibaFramework\obj\Debug\
 KibaFramework
 none
 false
 DEBUG;TRACE
-D:\GitHub\KibaFramework\KibaFramework\App.xaml
+E:\GitHub\KibaFramework\KibaFramework\App.xaml
 4-968091032
 
 81467415301
-14295974116
+14-634258878
 View\PageMain.xaml;View\User\PageUser.xaml;View\User\WindowCreateUser.xaml;View\WindowMain.xaml;
 
 False

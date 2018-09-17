@@ -2,3 +2,8 @@ D:\GitHub\WPFFramework\KibaFramework\Utility\bin\Debug\Utility.dll
 D:\GitHub\WPFFramework\KibaFramework\Utility\bin\Debug\Utility.pdb
 D:\GitHub\WPFFramework\KibaFramework\Utility\obj\Debug\Utility.dll
 D:\GitHub\WPFFramework\KibaFramework\Utility\obj\Debug\Utility.pdb
+E:\GitHub\KibaFramework\Utility\bin\Debug\Utility.dll
+E:\GitHub\KibaFramework\Utility\bin\Debug\Utility.pdb
+E:\GitHub\KibaFramework\Utility\obj\Debug\Utility.csproj.CoreCompileInputs.cache
+E:\GitHub\KibaFramework\Utility\obj\Debug\Utility.dll
+E:\GitHub\KibaFramework\Utility\obj\Debug\Utility.pdb
