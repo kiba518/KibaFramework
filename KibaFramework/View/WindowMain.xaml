@@ -5,7 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KibaFramework"
         mc:Ignorable="d"
-        Title="KibaFramework" Height="500" Width="800" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen" Icon="/Image/logo.ico" >
+        Title="KibaFramework" Height="800" Width="1200" WindowStyle="SingleBorderWindow" WindowStartupLocation="CenterScreen" Icon="/Image/logo.ico" >
+    <Window.Resources> 
+        <Style   TargetType="{x:Type TreeViewItem}"> 
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Margin" Value="5" />
+        </Style>
+    </Window.Resources>
     <DockPanel>
         <StackPanel  DockPanel.Dock="Top" Background="Gainsboro">
             <TextBlock TextAlignment="Left" Text="{Binding HeaderName,Mode=TwoWay}" Margin="20,20,0,0" Height="70" FontSize="36"></TextBlock>
@@ -17,22 +23,50 @@
                 </StatusBarItem>
             </StatusBar>
             <DockPanel>
-                <DockPanel  Width="160" DockPanel.Dock="Left" Background="Lavender" >
+                <DockPanel  Width="200" DockPanel.Dock="Left" Background="Lavender" >
                     <DockPanel DockPanel.Dock="Top" Background="LightBlue" Height="40">
                         <TextBlock VerticalAlignment="Center" Margin="10,0,0,0"  FontSize="16">List</TextBlock>
                     </DockPanel>
-                    <TreeView ScrollViewer.VerticalScrollBarVisibility="Auto" BorderThickness="0"  Width="150" FontSize="12" Background="Lavender">
+                    <TreeView ScrollViewer.VerticalScrollBarVisibility="Auto" BorderThickness="0"  Width="180" FontSize="12" Background="Lavender">
                         <TreeViewItem>
                             <TreeViewItem.Template>
                                 <ControlTemplate>
-                                    <Button HorizontalAlignment="Left" Content="PageMain" Command="{Binding ChangeFrameSourceCommand}" CommandParameter="PageMain"  Style="{StaticResource NullButton}"></Button>
+                                    <Button HorizontalAlignment="Left" Content="主页" Command="{Binding ChangeFrameSourceCommand}" CommandParameter="PageMain"  Style="{StaticResource NullButton}"></Button>
                                 </ControlTemplate>
                             </TreeViewItem.Template>
                         </TreeViewItem>
                         <TreeViewItem>
                             <TreeViewItem.Template>
                                 <ControlTemplate>
-                                    <Button HorizontalAlignment="Left" Content="PageUser" Command="{Binding ChangeFrameSourceCommand}" CommandParameter="PageUser"  Style="{StaticResource NullButton}"></Button>
+                                    <Button HorizontalAlignment="Left" Content="用户管理" Command="{Binding ChangeFrameSourceCommand}" CommandParameter="PageUser"  Style="{StaticResource NullButton}"></Button>
+                                </ControlTemplate>
+                            </TreeViewItem.Template>
+                        </TreeViewItem>
+                        <TreeViewItem>
+                            <TreeViewItem.Template>
+                                <ControlTemplate>
+                                    <Button HorizontalAlignment="Left" Content="TextBox数据控件" Command="{Binding ChangeFrameSourceCommand}" CommandParameter="PageTextBox"  Style="{StaticResource NullButton}"></Button>
+                                </ControlTemplate>
+                            </TreeViewItem.Template>
+                        </TreeViewItem>
+                        <TreeViewItem>
+                            <TreeViewItem.Template>
+                                <ControlTemplate>
+                                    <Button HorizontalAlignment="Left" Content="CheckBox数据控件" Command="{Binding ChangeFrameSourceCommand}" CommandParameter="PageCheckBox"  Style="{StaticResource NullButton}"></Button>
+                                </ControlTemplate>
+                            </TreeViewItem.Template>
+                        </TreeViewItem>
+                        <TreeViewItem>
+                            <TreeViewItem.Template>
+                                <ControlTemplate>
+                                    <Button HorizontalAlignment="Left" Content="ComboBox数据控件" Command="{Binding ChangeFrameSourceCommand}" CommandParameter="PageComboBox"  Style="{StaticResource NullButton}"></Button>
+                                </ControlTemplate>
+                            </TreeViewItem.Template>
+                        </TreeViewItem>
+                        <TreeViewItem>
+                            <TreeViewItem.Template>
+                                <ControlTemplate>
+                                    <Button HorizontalAlignment="Left" Content="DataGrid数据控件" Command="{Binding ChangeFrameSourceCommand}" CommandParameter="PageDataGrid"  Style="{StaticResource NullButton}"></Button>
                                 </ControlTemplate>
                             </TreeViewItem.Template>
                         </TreeViewItem>

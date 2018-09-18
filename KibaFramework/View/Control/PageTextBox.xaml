@@ -1,0 +1,37 @@
+﻿<Page x:Class="KibaFramework.PageTextBox"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KibaFramework"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageTextBox">
+
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top">
+            <TextBlock TextAlignment="Left"   Text="TextBox应用" Margin="20,20,0,0" Height="70" FontSize="36"></TextBlock>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" >
+            <GroupBox HorizontalAlignment="Left" Header="TextBox" Margin="10,0,0,0" >
+                <StackPanel Orientation="Vertical"  Margin="10" >
+                    <TextBox Text="{Binding TestTextBox.Text,Mode=TwoWay}" Margin="5"  FontSize="12"></TextBox>
+                    <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Height="24" >
+                        <Button Content="切换Kiba" Command="{Binding TabKibaCommand}" Width="70"></Button>
+                        <Button Content="切换518" Command="{Binding Tab518Command}" Width="70" Margin="10,0,0,0"></Button>
+                    </StackPanel>
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox HorizontalAlignment="Left" Header="TextBoxChange" Margin="10,0,0,0" >
+                <StackPanel Orientation="Vertical"  Margin="10" >
+                    <TextBox Text="{Binding ChangeTextBox.Text,Mode=TwoWay}" Margin="5"  FontSize="12"></TextBox>
+                    <TextBox Text="{Binding ChangeTextBox2.Text,Mode=TwoWay}" Margin="5"  FontSize="12"></TextBox>
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+        <StackPanel>
+            <TextBlock  TextBlock.LineHeight="24" Height="24" Text="Footer" Margin="10"  FontSize="12"></TextBlock>
+        </StackPanel>
+    </DockPanel>
+</Page>

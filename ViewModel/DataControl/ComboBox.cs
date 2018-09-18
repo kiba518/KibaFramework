@@ -25,7 +25,22 @@ namespace ViewModel
 
 
         public List<T> _ItemsSource;
-        public List<T> ItemsSource { get { return _ItemsSource; } set { _ItemsSource = value; OnPropertyChanged(); } }
+        public List<T> ItemsSource
+        {
+            get
+            {
+                return _ItemsSource;
+            }
+            set
+            {
+                _ItemsSource = value;
+                if (_ItemsSource != null && _ItemsSource.Count > 0 && SelectedItem == null)
+                {
+                    SelectedItem = _ItemsSource.First();
+                } 
+                OnPropertyChanged();
+            }
+        }
 
         public T _SelectedItem;
         public T SelectedItem { get { return _SelectedItem; }

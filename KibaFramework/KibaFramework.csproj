@@ -57,6 +57,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="View\Control\PageDataGrid.xaml.cs">
+      <DependentUpon>PageDataGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Control\PageComboBox.xaml.cs">
+      <DependentUpon>PageComboBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Control\PageCheckBox.xaml.cs">
+      <DependentUpon>PageCheckBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Control\PageTextBox.xaml.cs">
+      <DependentUpon>PageTextBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\User\PageUser.xaml.cs">
       <DependentUpon>PageUser.xaml</DependentUpon>
     </Compile>
@@ -70,6 +82,26 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Theme\Theme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Control\PageDataGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Control\PageComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Control\PageCheckBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Control\PageTextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\PageMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

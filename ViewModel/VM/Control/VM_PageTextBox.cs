@@ -6,15 +6,18 @@ using System.Threading.Tasks;
 
 namespace ViewModel
 {
-    public class VM_PageMain : BaseViewModel
+    public class VM_PageTextBox : BaseViewModel
     {
         public TextBox<string> TestTextBox { get; set; }
         public TextBox<string> ChangeTextBox { get; set; }
-        public VM_PageMain()
+        public TextBox<string> ChangeTextBox2 { get; set; }
+        public VM_PageTextBox()
         {
             TestTextBox = new TextBox<string>();
             ChangeTextBox = new TextBox<string>();
+            ChangeTextBox2 = new TextBox<string>();
             ChangeTextBox.TextChangeCallBack = (text) => { MessageBox(text); };//声明TextChange
+            ChangeTextBox2.TextChangeCallBack = (text) => { MessageBox(text); };//声明TextChange
         }
 
         #region 切换设置Text

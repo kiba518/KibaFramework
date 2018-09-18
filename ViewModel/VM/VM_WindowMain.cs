@@ -32,6 +32,19 @@ namespace ViewModel
                case "PageUser":
                    FrameSource = new VM_PageUser().UIElement as Page;
                    break;
+                case "PageTextBox":
+                    FrameSource = new VM_PageTextBox().UIElement as Page;
+                    break;
+                case "PageCheckBox":
+                    FrameSource = new VM_PageCheckBox().UIElement as Page;
+                    break;
+                case "PageComboBox":
+                    FrameSource = new VM_PageComboBox().UIElement as Page;
+                    break;
+                case "PageDataGrid":
+                    FrameSource = new VM_PageDataGrid().UIElement as Page;
+                    break; 
+
            }
         }
 

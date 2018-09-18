@@ -66,3 +66,17 @@ E:\GitHub\KibaFramework\KibaFramework\obj\Debug\KibaFramework.csproj.CoreCompile
 E:\GitHub\KibaFramework\KibaFramework\obj\Debug\KibaFramework.csproj.CopyComplete
 E:\GitHub\KibaFramework\KibaFramework\obj\Debug\KibaFramework.exe
 E:\GitHub\KibaFramework\KibaFramework\obj\Debug\KibaFramework.pdb
+E:\GitHub\KibaFramework\KibaFramework\obj\Debug\View\Control\PageTextBox.g.cs
+E:\GitHub\KibaFramework\KibaFramework\obj\Debug\View\Control\PageTextBox.baml
+E:\GitHub\KibaFramework\KibaFramework\obj\Debug\View\Control\PageCheckBox.g.cs
+E:\GitHub\KibaFramework\KibaFramework\obj\Debug\View\Control\PageCheckBox.baml
+E:\GitHub\KibaFramework\KibaFramework\obj\Debug\View\Control\PageComboBox.g.cs
+E:\GitHub\KibaFramework\KibaFramework\obj\Debug\View\Control\PageComboBox.baml
+E:\GitHub\KibaFramework\KibaFramework\bin\Debug\DTO.exe
+E:\GitHub\KibaFramework\KibaFramework\bin\Debug\Proxy.dll
+E:\GitHub\KibaFramework\KibaFramework\bin\Debug\DTO.pdb
+E:\GitHub\KibaFramework\KibaFramework\bin\Debug\DTO.exe.config
+E:\GitHub\KibaFramework\KibaFramework\bin\Debug\Proxy.pdb
+E:\GitHub\KibaFramework\KibaFramework\obj\Debug\View\Control\PageDataGrid.g.cs
+E:\GitHub\KibaFramework\KibaFramework\obj\Debug\View\Control\PageDataGrid.baml
+E:\GitHub\KibaFramework\KibaFramework\obj\Debug\Theme\Theme.baml

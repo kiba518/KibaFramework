@@ -45,8 +45,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\BaseCommand.cs" />
-    <Compile Include="Base\BaseViewModel.cs" />
+    <Compile Include="VM\Base\BaseCommand.cs" />
+    <Compile Include="VM\Base\BaseViewModel.cs" />
     <Compile Include="DataControl\CheckBox.cs" />
     <Compile Include="DataControl\DataGrid.cs" />
     <Compile Include="DataControl\ListBox.cs" />
@@ -58,10 +58,14 @@
     <Compile Include="DataControl\DatePicker.cs" />
     <Compile Include="DataControl\TextBox.cs" />
     <Compile Include="Helper\DispatcherHelper.cs" />
-    <Compile Include="User\VM_PageUser.cs" />
-    <Compile Include="User\VM_WindowCreateUser.cs" />
-    <Compile Include="VM_PageMain.cs" />
-    <Compile Include="VM_WindowMain.cs" />
+    <Compile Include="VM\Control\VM_PageDataGrid.cs" />
+    <Compile Include="VM\Control\VM_PageComboBox.cs" />
+    <Compile Include="VM\Control\VM_PageCheckBox.cs" />
+    <Compile Include="VM\Control\VM_PageTextBox.cs" />
+    <Compile Include="VM\User\VM_PageUser.cs" />
+    <Compile Include="VM\User\VM_WindowCreateUser.cs" />
+    <Compile Include="VM\VM_PageMain.cs" />
+    <Compile Include="VM\VM_WindowMain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -9,6 +9,6 @@
       Title="PageUser">
 
     <DockPanel>
-        <TextBlock TextAlignment="Left" Text="我是PageUser" Margin="20,20,0,0" Height="70" FontSize="36"></TextBlock>
+        <TextBlock VerticalAlignment="Top" TextAlignment="Left" Text="我是用户管理" Margin="20,20,0,0" Height="70" FontSize="36"></TextBlock>
     </DockPanel>
 </Page>
