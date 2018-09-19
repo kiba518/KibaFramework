@@ -10,6 +10,8 @@ using System.Windows.Data;
 using System.Data;
 using System.Threading;
 using System.Reflection;
+using System.Collections.ObjectModel;
+
 namespace ViewModel
 {
   
@@ -76,9 +78,9 @@ namespace ViewModel
         public int SkipNumber { get { return _SkipNumber; } set { _SkipNumber = value; OnPropertyChanged(); } }
 
          
-        private List<T> _ItemsSource = new List<T>();
+        private ObservableCollection<T> _ItemsSource = new ObservableCollection<T>();
 
-        public List<T> ItemsSource
+        public ObservableCollection<T> ItemsSource
         {
             get { return _ItemsSource; }
             set
@@ -91,6 +93,13 @@ namespace ViewModel
                 OnPropertyChanged(); 
             }
         }
+
+        public void SetItemsSource(List<T> itemSource)
+        {
+            ItemsSource = new ObservableCollection<T>(itemSource);
+        }
+
+
 
         public T _SelectedItem;
         public T SelectedItem
@@ -129,7 +138,8 @@ namespace ViewModel
        
 
         public void BindSource(Action<T> loadAction, T conditionRow)
-        { 
+        {
+            LoadAction = loadAction;
             if (LoadAction != null)
             {
                 CurrentPage = 1;

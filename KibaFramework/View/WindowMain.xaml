@@ -23,11 +23,11 @@
                 </StatusBarItem>
             </StatusBar>
             <DockPanel>
-                <DockPanel  Width="200" DockPanel.Dock="Left" Background="Lavender" >
+                <DockPanel  Width="220" DockPanel.Dock="Left" Background="Lavender" >
                     <DockPanel DockPanel.Dock="Top" Background="LightBlue" Height="40">
                         <TextBlock VerticalAlignment="Center" Margin="10,0,0,0"  FontSize="16">List</TextBlock>
                     </DockPanel>
-                    <TreeView ScrollViewer.VerticalScrollBarVisibility="Auto" BorderThickness="0"  Width="180" FontSize="12" Background="Lavender">
+                    <TreeView ScrollViewer.VerticalScrollBarVisibility="Auto" BorderThickness="0"  Width="200" FontSize="12" Background="Lavender">
                         <TreeViewItem>
                             <TreeViewItem.Template>
                                 <ControlTemplate>
@@ -67,6 +67,13 @@
                             <TreeViewItem.Template>
                                 <ControlTemplate>
                                     <Button HorizontalAlignment="Left" Content="DataGrid数据控件" Command="{Binding ChangeFrameSourceCommand}" CommandParameter="PageDataGrid"  Style="{StaticResource NullButton}"></Button>
+                                </ControlTemplate>
+                            </TreeViewItem.Template>
+                        </TreeViewItem>
+                        <TreeViewItem>
+                            <TreeViewItem.Template>
+                                <ControlTemplate>
+                                    <Button HorizontalAlignment="Left" Content="DataGrid数据控件-中级" Command="{Binding ChangeFrameSourceCommand}" CommandParameter="PageDataGridMid"  Style="{StaticResource NullButton}"></Button>
                                 </ControlTemplate>
                             </TreeViewItem.Template>
                         </TreeViewItem>

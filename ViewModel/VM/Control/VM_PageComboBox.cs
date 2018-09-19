@@ -15,7 +15,7 @@ namespace ViewModel
         public VM_PageComboBox()
         {
             TestComboBox = new ComboBox<User>();
-            TestComboBox.ItemsSource = proxy.GetListDataProxy();
+            TestComboBox.ItemsSource = proxy.GetComboBoxData();
             TestComboBox.SelectCallBack = (user) => {
                 MessageBox(user.Name);
             };

@@ -58,6 +58,7 @@
     <Compile Include="DataControl\DatePicker.cs" />
     <Compile Include="DataControl\TextBox.cs" />
     <Compile Include="Helper\DispatcherHelper.cs" />
+    <Compile Include="VM\Control\VM_PageDataGridMid.cs" />
     <Compile Include="VM\Control\VM_PageDataGrid.cs" />
     <Compile Include="VM\Control\VM_PageComboBox.cs" />
     <Compile Include="VM\Control\VM_PageCheckBox.cs" />

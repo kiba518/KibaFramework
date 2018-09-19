@@ -80,3 +80,5 @@ E:\GitHub\KibaFramework\KibaFramework\bin\Debug\Proxy.pdb
 E:\GitHub\KibaFramework\KibaFramework\obj\Debug\View\Control\PageDataGrid.g.cs
 E:\GitHub\KibaFramework\KibaFramework\obj\Debug\View\Control\PageDataGrid.baml
 E:\GitHub\KibaFramework\KibaFramework\obj\Debug\Theme\Theme.baml
+E:\GitHub\KibaFramework\KibaFramework\obj\Debug\View\Control\PageDataGridMid.g.cs
+E:\GitHub\KibaFramework\KibaFramework\obj\Debug\View\Control\PageDataGridMid.baml
