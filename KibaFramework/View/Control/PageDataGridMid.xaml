@@ -26,7 +26,7 @@
             <TextBlock VerticalAlignment="Center" Text="{Binding PageCount}"></TextBlock>
             <TextBlock VerticalAlignment="Center" Text="总记录数：" Margin="20,0,0,0"></TextBlock>
             <TextBlock VerticalAlignment="Center" Text="{Binding RecordCount}"></TextBlock>
-            <TextBox  VerticalAlignment="Center" Width="40" Height="20" Margin="40,0,0,0" Text="{Binding DrugDataGrid.JumpTextBox.Text}" ></TextBox>
+            <TextBox  VerticalAlignment="Center" Width="40" Height="20" Margin="40,0,0,0" Text="{Binding JumpTextBox.Text}" ></TextBox>
             <Button  Content="GO"  Command="{Binding JumpCommand}" Width="40" Height="20" Margin="5,0,0,0" VerticalAlignment="Top" />
         </StackPanel>
         <GroupBox DockPanel.Dock="Top" Header="DataGrid" Margin="10,0,0,0" >

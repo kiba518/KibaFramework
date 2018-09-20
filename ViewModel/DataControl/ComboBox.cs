@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Linq;
@@ -9,23 +10,19 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 using Utility;
- 
 
-namespace ViewModel 
+
+namespace ViewModel
 {
     public class ComboBox<T> : Control<T>
-    { 
+    {
+        public Action<T> SelectCallBack = null;
         public ComboBox()
         {
-            
+
         }
-   
-    
-        public Action<T> SelectCallBack = null;
-
-
-        public List<T> _ItemsSource;
-        public List<T> ItemsSource
+        public ObservableCollection<T> _ItemsSource;
+        public ObservableCollection<T> ItemsSource
         {
             get
             {
@@ -37,13 +34,14 @@ namespace ViewModel
                 if (_ItemsSource != null && _ItemsSource.Count > 0 && SelectedItem == null)
                 {
                     SelectedItem = _ItemsSource.First();
-                } 
+                }
                 OnPropertyChanged();
             }
         }
-
         public T _SelectedItem;
-        public T SelectedItem { get { return _SelectedItem; }
+        public T SelectedItem
+        {
+            get { return _SelectedItem; }
             set
             {
                 _SelectedItem = value;
@@ -54,7 +52,6 @@ namespace ViewModel
                 OnPropertyChanged();
             }
         }
-
         private ICollectionView _ItemsSourceView;
         public ICollectionView ItemsSourceView
         {
@@ -66,9 +63,12 @@ namespace ViewModel
             set
             {
                 _ItemsSourceView = value;
-                OnPropertyChanged(); 
+                OnPropertyChanged();
             }
-        } 
-      
+        }
+        public void SetItemsSource(List<T> itemSource)
+        {
+            ItemsSource = new ObservableCollection<T>(itemSource);
+        }
     }
-}
+} 

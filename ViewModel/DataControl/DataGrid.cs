@@ -18,17 +18,10 @@ namespace ViewModel
     public class DataGrid<T> : Control<T>
     {
         private Action<T> LoadAction = null;
-
-        public DataGrid()
-        {
-           
-        }  
-
         public Action<T> SelectCallBack = null;
-
         private Func<object, bool> DataFilter = null;
-         
-
+       
+        #region 分页 
         private volatile int _CurrentPage = 1;
         public int CurrentPage
         {
@@ -46,12 +39,9 @@ namespace ViewModel
                 }
                 OnPropertyChanged();
             }
-        }
-
+        } 
         private int _PageCount = 1;
-        public int PageCount  { get {  return _PageCount;  }  set {  _PageCount = value;   OnPropertyChanged();  }  }
-
-
+        public int PageCount  { get {  return _PageCount;  }  set {  _PageCount = value;   OnPropertyChanged();  }  }  
         private int _RecordCount = 0;
         public int RecordCount
         {
@@ -76,86 +66,12 @@ namespace ViewModel
         }
         private int _SkipNumber = 30;
         public int SkipNumber { get { return _SkipNumber; } set { _SkipNumber = value; OnPropertyChanged(); } }
-
-         
-        private ObservableCollection<T> _ItemsSource = new ObservableCollection<T>();
-
-        public ObservableCollection<T> ItemsSource
-        {
-            get { return _ItemsSource; }
-            set
-            {
-                _ItemsSource = value;
-                if (_ItemsSource != null && _ItemsSource.Count > 0 && SelectedItem == null)
-                {
-                    SelectedItem = _ItemsSource.First();
-                }
-                OnPropertyChanged(); 
-            }
-        }
-
-        public void SetItemsSource(List<T> itemSource)
-        {
-            ItemsSource = new ObservableCollection<T>(itemSource);
-        }
-
-
-
-        public T _SelectedItem;
-        public T SelectedItem
-        {
-            get { return _SelectedItem; }
-            set
-            {
-                _SelectedItem = value;
-                if (SelectCallBack != null)
-                {
-                    SelectCallBack(_SelectedItem);
-                }
-                OnPropertyChanged();
-            }
-        }
-
-        private ICollectionView _ItemsSourceView;
-        public ICollectionView ItemsSourceView
-        {
-            get
-            {
-                _ItemsSourceView = CollectionViewSource.GetDefaultView(_ItemsSource);
-                return _ItemsSourceView;
-            }
-            set
-            {
-                _ItemsSourceView = value;
-                OnPropertyChanged();
-            }
-        }
-
-
-        private T _Condition = (T)Activator.CreateInstance(typeof(T));
-        public T Condition { get { return _Condition; } set { _Condition = value; OnPropertyChanged(); } }
-
-       
-
-        public void BindSource(Action<T> loadAction, T conditionRow)
-        {
-            LoadAction = loadAction;
-            if (LoadAction != null)
-            {
-                CurrentPage = 1;
-                LoadAction(conditionRow);
-            }
-        }
-     
-        #region Page setting
-
         private TextBox<string> _JumpTextBox = new TextBox<string>();
         public TextBox<string> JumpTextBox
         {
             get { return _JumpTextBox; }
             set { _JumpTextBox = value; OnPropertyChanged(); }
         }
-
         #region 跳页
         public BaseCommand JumpCommand
         {
@@ -199,7 +115,7 @@ namespace ViewModel
             {
                 return new BaseCommand(PreviousCommand_Executed);
             }
-        } 
+        }
         void PreviousCommand_Executed(object send)
         {
             if (CurrentPage > 1)
@@ -224,7 +140,7 @@ namespace ViewModel
             {
                 return new BaseCommand(NextCommand_Executed);
             }
-        } 
+        }
         void NextCommand_Executed(object send)
         {
             if (CurrentPage < PageCount)
@@ -246,8 +162,68 @@ namespace ViewModel
 
         #endregion
 
-        #region  
-         
+        private ObservableCollection<T> _ItemsSource = new ObservableCollection<T>();
+        public ObservableCollection<T> ItemsSource
+        {
+            get { return _ItemsSource; }
+            set
+            {
+                _ItemsSource = value;
+                if (_ItemsSource != null && _ItemsSource.Count > 0 && SelectedItem == null)
+                {
+                    SelectedItem = _ItemsSource.First();
+                }
+                OnPropertyChanged(); 
+            }
+        }
+        public void SetItemsSource(List<T> itemSource)
+        {
+            ItemsSource = new ObservableCollection<T>(itemSource);
+        }
+        public T _SelectedItem;
+        public T SelectedItem
+        {
+            get { return _SelectedItem; }
+            set
+            {
+                _SelectedItem = value;
+                if (SelectCallBack != null)
+                {
+                    SelectCallBack(_SelectedItem);
+                }
+                OnPropertyChanged();
+            }
+        }
+        private ICollectionView _ItemsSourceView;
+        public ICollectionView ItemsSourceView
+        {
+            get
+            {
+                _ItemsSourceView = CollectionViewSource.GetDefaultView(_ItemsSource);
+                return _ItemsSourceView;
+            }
+            set
+            {
+                _ItemsSourceView = value;
+                OnPropertyChanged();
+            }
+        }
+        private T _Condition = (T)Activator.CreateInstance(typeof(T));
+        public T Condition { get { return _Condition; } set { _Condition = value; OnPropertyChanged(); } }
+
+        #region 方法  
+        public DataGrid()
+        {
+        }
+        public void BindSource(Action<T> loadAction, T conditionRow)
+        {
+            LoadAction = loadAction;
+            if (LoadAction != null)
+            {
+                CurrentPage = 1;
+                LoadAction(conditionRow);
+            }
+        }
         public void SetFilter(Func<object, bool>  dataFilter)
         {
             try
@@ -260,9 +236,7 @@ namespace ViewModel
             {
                
             }
-        }
-        #endregion
-
+        } 
         public void Refresh()
         {
             if (_ItemsSourceView == null)
@@ -270,7 +244,7 @@ namespace ViewModel
                 _ItemsSourceView = CollectionViewSource.GetDefaultView(this.ItemsSource);
             }
             _ItemsSourceView.Refresh();
-        }   
-        
+        }
+        #endregion
     }
 }
