@@ -15,7 +15,7 @@
         <StackPanel DockPanel.Dock="Bottom">
             <TextBlock  TextBlock.LineHeight="24" Height="24" Text="Footer" Margin="10"  FontSize="12"></TextBlock>
         </StackPanel>
-        <StackPanel DataContext="{Binding TestDataGrid}" Orientation="Horizontal"  DockPanel.Dock="Bottom" HorizontalAlignment="Right" Margin="0,10,0,0"> 
+        <StackPanel DataContext="{Binding TestDataGrid}" Orientation="Horizontal"  DockPanel.Dock="Bottom" HorizontalAlignment="Right" Margin="0,10,10,0"> 
             <Button  Content="上一页" Width="60" Command="{Binding PreviousCommand}" Height="20" Margin="20,0,0,0" VerticalAlignment="Top" />
             <Button  Content="下一页" Width="60" Command="{Binding NextCommand}" Height="20" Margin="20,0,0,0" VerticalAlignment="Top" />
             <TextBlock VerticalAlignment="Center" Text="每页" Margin="20,0,0,0"></TextBlock>
@@ -31,8 +31,7 @@
         </StackPanel>
         <GroupBox DockPanel.Dock="Top" Header="DataGrid" Margin="10,0,0,0" >
             <DataGrid  Margin="5" FontSize="12" ItemsSource="{Binding TestDataGrid.ItemsSource}" AutoGenerateColumns="True"
-                               SelectedItem="{Binding TestDataGrid.SelectedItem}" >
-                
+                               SelectedItem="{Binding TestDataGrid.SelectedItem}" > 
             </DataGrid> 
         </GroupBox>
        

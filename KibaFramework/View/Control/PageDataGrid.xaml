@@ -17,9 +17,7 @@
         </StackPanel>
         <GroupBox Header="DataGrid" Margin="10,0,0,0" >
             <DataGrid  Margin="5" FontSize="12" ItemsSource="{Binding TestDataGrid.ItemsSource}" AutoGenerateColumns="True"
-                               SelectedItem="{Binding TestDataGrid.SelectedItem}" >
-                
-            </DataGrid> 
+                               SelectedItem="{Binding TestDataGrid.SelectedItem}" > </DataGrid> 
         </GroupBox> 
     </DockPanel>
 

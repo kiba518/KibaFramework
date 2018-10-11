@@ -215,7 +215,7 @@ namespace ViewModel
         public DataGrid()
         {
         }
-        public void BindSource(Action<T> loadAction, T conditionRow)
+        public void BindSource(Action<T> loadAction, T conditionRow = default(T))
         {
             LoadAction = loadAction;
             if (LoadAction != null)
@@ -223,6 +223,32 @@ namespace ViewModel
                 CurrentPage = 1;
                 LoadAction(conditionRow);
             }
+        }
+        public void BindSource(Action loadAction)
+        {
+            LoadAction = new Action<T>((obj) => {
+                loadAction();
+            }); ;
+            if (LoadAction != null)
+            {
+                CurrentPage = 1;
+                LoadAction(default(T));
+            }
+        }
+        public void ItemsSourceReBind()
+        {
+            BindSource(LoadAction);
+        }
+        public void SelectedItemReBind()
+        {
+            T newitem = (T)Activator.CreateInstance(typeof(T));
+            List<System.Reflection.PropertyInfo> plist = typeof(T).GetProperties().ToList();
+
+            foreach (var propertyInfo in plist)
+            {
+                propertyInfo.SetValue(newitem, propertyInfo.GetValue(SelectedItem));
+            }
+            SelectedItem = newitem;
         }
         public void SetFilter(Func<object, bool>  dataFilter)
         {
