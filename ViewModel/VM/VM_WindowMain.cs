@@ -47,8 +47,11 @@ namespace ViewModel
                 case "PageDataGridMid":
                     FrameSource = new VM_PageDataGridMid().UIElement as Page;
                     break;
+                case "PageDataGridAdvanced":
+                    FrameSource = new VM_PageDataGridAdvanced().UIElement as Page;
+                    break; 
 
-                    
+
 
            }
         }

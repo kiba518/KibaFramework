@@ -186,14 +186,31 @@ namespace ViewModel
             get { return _SelectedItem; }
             set
             {
-                _SelectedItem = value;
-                if (SelectCallBack != null)
+                if (_SelectedItem == null || !_SelectedItem.Equals(value))
                 {
-                    SelectCallBack(_SelectedItem);
+                    _SelectedItem = value;
+                    if (SelectCallBack != null)
+                    {
+                        SelectCallBack(_SelectedItem);
+                    }
+                    OnPropertyChanged();
                 }
-                OnPropertyChanged();
             }
         }
+        private ListCollectionView _ListCollectionView;
+        public ListCollectionView ListCollectionView
+        {
+            get
+            {
+                _ListCollectionView = this.ItemsSourceView as ListCollectionView;
+                return _ListCollectionView;
+            }
+            set
+            {
+                _ListCollectionView = value;
+                OnPropertyChanged();
+            }
+        } 
         private ICollectionView _ItemsSourceView;
         public ICollectionView ItemsSourceView
         {
@@ -214,6 +231,7 @@ namespace ViewModel
         #region 方法  
         public DataGrid()
         {
+            typePropertylist = typeof(T).GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public).ToList();
         }
         public void BindSource(Action<T> loadAction, T conditionRow = default(T))
         {
@@ -250,6 +268,7 @@ namespace ViewModel
             }
             SelectedItem = newitem;
         }
+        #region 过滤
         public void SetFilter(Func<object, bool>  dataFilter)
         {
             try
@@ -262,7 +281,501 @@ namespace ViewModel
             {
                
             }
-        } 
+        }
+        public List<PropertyInfo> typePropertylist = new List<PropertyInfo>();
+        private long usingResource = 0;
+        List<FilterProperty> ComparePropertyList = new List<FilterProperty>();
+        public List<string> NumberColumn = new List<string>() {
+            "decimal",
+            "int",
+            "int32",
+            "int64",
+            "long",
+            "double",
+            "float"
+        };
+
+        public BaseCommand FilterCommand
+        {
+            get
+            {
+                return new BaseCommand(FilterCommand_Excute);
+            }
+        }
+
+        private void FilterCommand_Excute(object obj)
+        {
+            var txt = obj as System.Windows.Controls.TextBox;
+            string text = txt.Text;
+            bool excuteFilter = false;
+
+            #region 锁检测
+            if (1 == Interlocked.Read(ref usingResource))
+            {
+                return;
+            }
+            //原始值是0，判断是时候使用原始值，但判断后值为1，进行了设置
+            if (0 == Interlocked.Exchange(ref usingResource, 1))
+            {
+                if (text != null)
+                { 
+                    if (text == "")
+                    {
+                        excuteFilter = true;
+                    }
+                    else
+                    {
+                        if (!string.IsNullOrWhiteSpace(text))
+                        {
+                            excuteFilter = true;
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                }
+            }
+            #endregion
+
+            try
+            {
+                if (excuteFilter)
+                { 
+                     
+                    if (txt.IsFocused)
+                    {
+                        if (ItemsSource != null && ItemsSource.Count > 0)
+                        {
+                            if (ComparePropertyList == null)//筛选比较的列
+                            {
+                                ComparePropertyList = new List<FilterProperty>();
+                            }
+
+                            string enColumnName = txt.DataContext.ToString();//属性名  英文名  
+
+                           
+                            if (!string.IsNullOrWhiteSpace(text))
+                            {
+                                PropertyInfo filterProperty = typePropertylist.FirstOrDefault(fp => fp.Name == enColumnName);
+                                if (filterProperty != null)
+                                {
+                                    object filterValue;
+                                    string conditionStr = GetValueAndCondition(text, out filterValue);
+                                    if (!text.StartsWith("=") && !text.StartsWith("!like") && "string" == filterProperty.PropertyType.ToString().Replace("System.Nullable`1[", "").Replace("]", "").Replace("System.", "").ToLower())
+                                    {
+                                        conditionStr = "like";
+                                    }
+                                    FilterProperty filterfp = ComparePropertyList.FirstOrDefault(p => p.PropertyName == enColumnName);
+                                    if (filterfp == null)
+                                    {
+                                        FilterProperty fp = new FilterProperty();
+                                        fp.PropertyName = enColumnName;
+                                        fp.ConditionStr = conditionStr;
+                                        fp.PropertyInfo = filterProperty;
+                                        fp.PropertyValue = filterValue;
+                                        ComparePropertyList.Add(fp);
+                                    }
+                                    else
+                                    {
+                                        filterfp.PropertyName = enColumnName;
+                                        filterfp.ConditionStr = conditionStr;
+                                        filterfp.PropertyValue = filterValue;
+                                    }
+
+                                    object value = ChangeValueForType(filterProperty.PropertyType, text);
+                                    filterProperty.SetValue(Condition, value, null);
+
+                                }
+                            }
+                            else
+                            {
+                                PropertyInfo filterProperty = typePropertylist.FirstOrDefault(fp => fp.Name == enColumnName);
+                                if (filterProperty != null)
+                                {
+                                    FilterProperty fp = ComparePropertyList.FirstOrDefault(p => p.PropertyName == enColumnName);
+                                    if (fp != null)
+                                    {
+                                        ComparePropertyList.Remove(fp);
+                                    }
+                                    object value = GetDefaultForType(filterProperty.PropertyType);
+                                    filterProperty.SetValue(Condition, value, null);
+                                }
+                            }
+
+                            SetFilterComm(Condition);
+
+                            int rowCount = this.ListCollectionView.Count;//最大行
+
+                            if (rowCount <= 0)
+                            {
+                                this.ListCollectionView.Remove(this.Condition);
+
+                                this.ListCollectionView.AddNewItem(this.Condition);
+
+                                this.ListCollectionView.CommitNew();//未解决问题 输入= 就会提交事务失败
+                                if (this.ListCollectionView.Count != 1)//应对提交事务失败时出现的BUG
+                                {
+                                    this.ItemsSource.Remove(this.Condition); 
+                                }
+                            }
+                            else if (rowCount == 1)
+                            {
+                                if (this.Condition.Equals(this.ListCollectionView.GetItemAt(0)))
+                                {
+                                    this.ListCollectionView.Remove(this.Condition);
+                                    this.ListCollectionView.AddNewItem(this.Condition);
+                                    this.ListCollectionView.CommitNew();
+                                }
+                                else
+                                {
+                                    this.ListCollectionView.Remove(this.Condition);
+                                    this.ListCollectionView.CommitNew();
+                                }
+                            }
+                            else
+                            {
+
+                                this.ListCollectionView.Remove(this.Condition);
+                                this.ListCollectionView.CommitNew();
+                            }
+                        }
+                    }
+                }
+            } 
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                Interlocked.Exchange(ref usingResource, 0);
+            }
+        }
+        public static object GetDefaultForType(Type propertyType)
+        {
+            if (propertyType.Name == "String")
+            {
+                return string.Empty;
+            }
+            else
+            {
+                return propertyType.IsValueType ? Activator.CreateInstance(propertyType) : null;
+            }
+        }
+        public static object ChangeValueForType(Type type, string text)
+        {
+            string typename = type.ToString().Replace("System.Nullable`1[", "").Replace("]", "").Replace("System.", "").ToLower();
+            switch (typename.ToLower())
+            {
+                case "decimal":
+                    return ToolFunction.ToDec(text);
+                case "int":
+                case "int32":
+                case "int64":
+                case "long":
+                    return ToolFunction.ToInt(text);
+                case "double":
+                    return ToolFunction.ToDouble(text);
+                case "float":
+                    return ToolFunction.ToFloat(text);
+                case "string":
+                    return text.ToString();
+                case "bool":
+                case "boolean":
+                    bool ret = false;
+                    if (text.ToString() == "是")
+                    {
+                        ret = true;
+                    }
+                    if (text.ToString() == "1")
+                    {
+                        ret = true;
+                    }
+                    if (text.ToString().ToLower() == "true")
+                    {
+                        ret = true;
+                    }
+                    if (text.ToString() == "否")
+                    {
+                        ret = false;
+                    }
+                    if (text.ToString() == "0")
+                    {
+                        ret = false;
+                    }
+                    if (text.ToString().ToLower() == "false")
+                    {
+                        ret = false;
+                    }
+                    return ret;
+                case "datetime":
+                    return ToolFunction.ToDateTime(text);
+                default:
+                    return text;
+            }
+        }
+        public void SetFilterComm(Object condition)
+        {
+            if (condition != null)
+            {
+                #region
+                var dataGridData = this;
+
+
+
+                #region
+
+                ItemsSourceView.Filter = new Predicate<object>((obj) =>
+                {
+                    bool isFilter = true;
+
+                    foreach (FilterProperty pinfo in ComparePropertyList) //循环筛选出来的属性
+                            {
+
+                        string columnNameEn = pinfo.PropertyName;
+                        var filterValue = pinfo.PropertyValue;//过滤的值
+                                string columnType = pinfo.PropertyInfo.PropertyType.ToString().Replace("System.Nullable`1[", "").Replace("]", "").Replace("System.", "").ToLower();
+
+
+                        if (filterValue != null)
+                        {
+                                    #region 重点内容 这里开始执行真正的比较
+
+                                    object rowValue = ToolFunction.GetPropertyValue(obj, pinfo.PropertyInfo);//数据行的值
+
+                                    if (rowValue == null)
+                            {
+                                if (filterValue.ToString() == "")
+                                {
+                                    return true;
+                                }
+                                else
+                                {
+                                    return false;
+                                }
+                            }
+                            else
+                            {
+                                isFilter = CompareValue(columnType, rowValue, filterValue, pinfo.ConditionStr);
+                            }
+                                    #endregion
+                                }
+                        if (!isFilter)
+                        {
+                            return isFilter;
+                        }
+                    }
+
+                    return isFilter;
+                });
+
+
+                #endregion
+
+                #endregion
+            }
+
+        }
+        public bool CompareValue(string type, object rowValue, object filterValue, string conditionStr)
+        {
+            bool result = false;
+            switch (type.ToLower())
+            {
+                case "decimal":
+                case "int":
+                case "int32":
+                case "int64":
+                case "long":
+                case "double":
+                case "float":
+                    var s_d = ToolFunction.ToDec(rowValue);
+                    var t_d = ToolFunction.ToDec(filterValue);
+                    switch (conditionStr)
+                    {
+                        case "=":
+                            result = s_d == t_d;
+                            break;
+                        case ">":
+                            result = s_d > t_d;
+                            break;
+                        case "<":
+                            result = s_d < t_d;
+                            break;
+                        case ">=":
+                            result = s_d >= t_d;
+                            break;
+                        case "<=":
+                            result = s_d <= t_d;
+                            break;
+                        case "!=":
+                            result = s_d != t_d;
+                            break;
+                    }
+                    break;
+                case "string":
+                    var s_s = rowValue.ToString();
+                    var t_s = filterValue.ToString();
+                    if(string.IsNullOrWhiteSpace(conditionStr))
+                    {
+                        conditionStr = "like";
+                    } 
+                    switch (conditionStr)
+                    {
+                        case "like":
+                            result = s_s.ToLower().Contains(t_s.ToLower());
+                            break;
+                        case "!like":
+                            result = !s_s.ToLower().Contains(t_s.ToLower());
+                            break;
+                        case "=":
+                            result = s_s.ToLower() == t_s.ToLower();
+                            break;
+                    }
+                    break;
+                case "bool":
+                case "boolean":
+                    bool s_b = false;
+                    if (rowValue.ToString() == "是")
+                    {
+                        s_b = true;
+                    }
+                    if (rowValue.ToString() == "1")
+                    {
+                        s_b = true;
+                    }
+                    if (rowValue.ToString().ToLower() == "true")
+                    {
+                        s_b = true;
+                    }
+                    if (rowValue.ToString() == "否")
+                    {
+                        s_b = false;
+                    }
+                    if (rowValue.ToString() == "0")
+                    {
+                        s_b = false;
+                    }
+                    if (rowValue.ToString().ToLower() == "false")
+                    {
+                        s_b = false;
+                    }
+                    //==================================
+                    var t_b = false;
+                    if (filterValue.ToString() == "是")
+                    {
+                        t_b = true;
+                    }
+                    if (filterValue.ToString() == "1")
+                    {
+                        t_b = true;
+                    }
+                    if (filterValue.ToString().ToLower() == "true")
+                    {
+                        t_b = true;
+                    }
+                    if (filterValue.ToString() == "否")
+                    {
+                        t_b = false;
+                    }
+                    if (filterValue.ToString() == "0")
+                    {
+                        t_b = false;
+                    }
+                    if (filterValue.ToString().ToLower() == "false")
+                    {
+                        t_b = false;
+                    }
+                    switch (conditionStr)
+                    {
+                        case "!=":
+                            result = s_b != t_b;
+                            break;
+                        case "=":
+                            result = s_b == t_b;
+                            break;
+                    }
+                    break;
+                case "datetime":
+                    var s_dt = ToolFunction.ToDateTime(rowValue);
+                    var t_dt = ToolFunction.ToDateTime(filterValue);
+                    switch (conditionStr)
+                    {
+                        case "=":
+                            result = s_dt == t_dt;
+                            break;
+                        case ">":
+                            result = s_dt > t_dt;
+                            break;
+                        case ">=":
+                            result = s_dt >= t_dt;
+                            break;
+                        case "<=":
+                            result = s_dt <= t_dt;
+                            break;
+                        case "<":
+                            result = s_dt < t_dt;
+                            break;
+                        case "!=":
+                            result = s_dt != t_dt;
+                            break;
+                    }
+                    break;
+
+            }
+            return result;
+        }
+
+        public string GetValueAndCondition(object filterValue, out object actualfilterValue)
+        {
+            string conditionStr = "=";
+            string filterValueStr = filterValue.ToString();
+          
+            if (filterValueStr.StartsWith(">"))
+            {
+                conditionStr = ">";
+                filterValue = filterValueStr.Replace(">", "");
+            }
+            if (filterValueStr.StartsWith("<"))
+            {
+                conditionStr = "<";
+                filterValue = filterValueStr.Replace("<", "");
+            }
+            if (filterValueStr.StartsWith("<="))
+            {
+                conditionStr = "<=";
+                filterValue = filterValueStr.Replace("<=", "");
+            }
+            if (filterValueStr.StartsWith(">="))
+            {
+                conditionStr = ">=";
+                filterValue = filterValueStr.Replace(">=", "");
+            }
+            if (filterValueStr.StartsWith("="))
+            {
+                conditionStr = "=";
+                filterValue = filterValueStr.Replace("=", "");
+            }
+            else if (filterValueStr.StartsWith("!="))
+            {
+                conditionStr = "!=";
+                filterValue = filterValueStr.Replace("!=", "");
+            }
+            if (filterValueStr.StartsWith("!like"))
+            {
+                conditionStr = "!like";
+                filterValue = filterValueStr.Replace("!like", "");
+            }
+            else if (filterValueStr.StartsWith("like"))
+            {
+                conditionStr = "like";
+                filterValue = filterValueStr.Replace("like", "");
+            }
+            actualfilterValue = filterValue;
+            return conditionStr;
+        }
+         
+        #endregion
         public void Refresh()
         {
             if (_ItemsSourceView == null)

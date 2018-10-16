@@ -4802,6 +4802,19 @@
         <Setter Property="MinWidth"   Value="0" />
         <Setter Property="MinHeight"   Value="24" />
         <Setter Property="Cursor"     Value="Hand" />
+        <!--<Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+            <Setter Property="BorderThickness" Value="1,0,0,1"></Setter>
+            <Setter Property="BorderBrush" Value="#FFA6B0C1"></Setter>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush EndPoint="0.5,2" StartPoint="0.5,0">
+                        <GradientStop Color="#00FFFFFF" Offset="0"/>
+                        <GradientStop Color="#72FFFFFF" Offset="0.157"/>
+                        <GradientStop Color="#72FFFFFF" Offset="0.5"/>
+                        <GradientStop Color="#00FFFFFF" Offset="0.51"/>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>-->
         <Setter Property="Margin"     Value="0,3,0,2" />
 
     </Style>
@@ -4809,11 +4822,25 @@
     <!--单元格样式触发-->
     <Style TargetType="DataGridCell">
         <Setter Property="Background"  Value="#F2F2F2" />
+
+        <!--<Setter Property="Content">
+                <Setter.Value>
+                    -->
+        <!--<DockPanel Background="#F2F2F2" Margin="0" VerticalAlignment="Center"  >
+                        <TextBlock Padding="3" Background="Red"   TextAlignment="Left" VerticalAlignment="Center" >-->
+        <!--
+                            <ContentPresenter  VerticalAlignment="Center"  TextBlock.TextAlignment="Left"/>
+                        -->
+        <!--</TextBlock>
+                    </DockPanel>-->
+        <!--
+                </Setter.Value>
+            </Setter>-->
         <Setter Property="Template" >
             <Setter.Value>
 
                 <ControlTemplate TargetType="DataGridCell">
-                    <DockPanel   LastChildFill="True"   >
+                    <DockPanel Margin="0" LastChildFill="True"   >
                         <DockPanel.Resources>
                             <Style TargetType="DockPanel">
                                 <Style.Triggers>

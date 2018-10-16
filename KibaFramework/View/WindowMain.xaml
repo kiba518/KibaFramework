@@ -77,6 +77,14 @@
                                 </ControlTemplate>
                             </TreeViewItem.Template>
                         </TreeViewItem>
+                        <TreeViewItem>
+                            <TreeViewItem.Template>
+                                <ControlTemplate>
+                                    <Button HorizontalAlignment="Left" Content="DataGrid数据控件-高级" Command="{Binding ChangeFrameSourceCommand}" CommandParameter="PageDataGridAdvanced"  Style="{StaticResource NullButton}"></Button>
+                                </ControlTemplate>
+                            </TreeViewItem.Template>
+                        </TreeViewItem>
+                        
                     </TreeView>
                 </DockPanel>
                 <DockPanel DockPanel.Dock="Right" >

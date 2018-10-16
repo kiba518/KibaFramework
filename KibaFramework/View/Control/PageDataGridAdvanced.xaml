@@ -1,0 +1,144 @@
+﻿<Page x:Class="KibaFramework.PageDataGridAdvanced"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      
+      xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" 
+      xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PageDataGridMid">
+    <Page.Resources>
+        <Style x:Key="ColumnHeaderGripperStyle" TargetType="{x:Type Thumb}">
+            <Setter Property="Width" Value="8"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Cursor" Value="SizeWE"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Thumb}">
+                        <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="dgchFilter" TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="MinWidth"   Value="0" />
+            <Setter Property="MinHeight"   Value="24" />
+            <Setter Property="Cursor"     Value="Hand" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="Margin"     Value="0,3,0,3" />
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="24"/>
+                                <RowDefinition Height="24"/>
+
+                            </Grid.RowDefinitions>
+                            <Themes:DataGridHeaderBorder Grid.Row="0" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" IsClickable="{TemplateBinding CanUserSort}" IsPressed="{TemplateBinding IsPressed}" IsHovered="{TemplateBinding IsMouseOver}" Padding="{TemplateBinding Padding}" SortDirection="{TemplateBinding SortDirection}" SeparatorBrush="{TemplateBinding SeparatorBrush}" SeparatorVisibility="{TemplateBinding SeparatorVisibility}">
+                                <StackPanel>
+                                    <ContentPresenter  x:Name="cpHeader" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" 
+                                                       SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                        /> 
+                                </StackPanel> 
+                            </Themes:DataGridHeaderBorder>
+                            <Thumb x:Name="PART_LeftHeaderGripper" Grid.Row="0" HorizontalAlignment="Left" Style="{StaticResource ColumnHeaderGripperStyle}"/>
+                            <Thumb x:Name="PART_RightHeaderGripper" Grid.Row="0" HorizontalAlignment="Right" Style="{StaticResource ColumnHeaderGripperStyle}"/>
+                            <TextBox  Name="txtFilter" Grid.Row="1">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="TextChanged">
+                                        <i:InvokeCommandAction Command="{Binding DataContext.TestDataGrid.FilterCommand,RelativeSource={RelativeSource AncestorType={x:Type Page}}}"
+                                                               CommandParameter="{Binding ElementName=txtFilter}" />
+                                    </i:EventTrigger> 
+                                </i:Interaction.Triggers> 
+                            </TextBox>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top">
+            <TextBlock TextAlignment="Left"   Text="DataGrid高级应用" Margin="20,20,0,0" Height="70" FontSize="36"></TextBlock>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Bottom">
+            <TextBlock  TextBlock.LineHeight="24" Height="24" Text="Footer" Margin="10"  FontSize="12"></TextBlock>
+        </StackPanel>
+        <StackPanel DataContext="{Binding TestDataGrid}" Orientation="Horizontal"  DockPanel.Dock="Bottom" HorizontalAlignment="Right" Margin="0,10,10,0"> 
+            <Button  Content="上一页" Width="60" Command="{Binding PreviousCommand}" Height="20" Margin="20,0,0,0" VerticalAlignment="Top" />
+            <Button  Content="下一页" Width="60" Command="{Binding NextCommand}" Height="20" Margin="20,0,0,0" VerticalAlignment="Top" />
+            <TextBlock VerticalAlignment="Center" Text="每页" Margin="20,0,0,0"></TextBlock>
+            <TextBlock VerticalAlignment="Center" Text="{Binding  SkipNumber}"  Margin="0,0,0,0"></TextBlock>
+            <TextBlock VerticalAlignment="Center" Text="条"></TextBlock>
+            <TextBlock VerticalAlignment="Center" Text="{Binding CurrentPage}"  Margin="20,0,0,0"></TextBlock>
+            <TextBlock VerticalAlignment="Center" Text="/"></TextBlock>
+            <TextBlock VerticalAlignment="Center" Text="{Binding PageCount}"></TextBlock>
+            <TextBlock VerticalAlignment="Center" Text="总记录数：" Margin="20,0,0,0"></TextBlock>
+            <TextBlock VerticalAlignment="Center" Text="{Binding RecordCount}"></TextBlock>
+            <TextBox  VerticalAlignment="Center" Width="40" Height="20" Margin="40,0,0,0" Text="{Binding JumpTextBox.Text}" ></TextBox>
+            <Button  Content="GO"  Command="{Binding JumpCommand}" Width="40" Height="20" Margin="5,0,0,0" VerticalAlignment="Top" />
+        </StackPanel>  
+        
+        <GroupBox DockPanel.Dock="Top" Header="DataGrid" Margin="10,0,0,0" >
+            <DockPanel>
+
+                <TextBlock TextAlignment="Left" DockPanel.Dock="Top"  Margin="5,5,5,0" Text="支持&lt;|&lt;=|&gt;|&gt;=|=|!=|like|!like检索"  VerticalAlignment="Center" FontSize="12"></TextBlock>
+               
+           
+                <DataGrid Name="dgCon" Margin="5" ItemsSource="{Binding TestDataGrid.ItemsSource}"  
+                                 SelectedItem="{Binding TestDataGrid.SelectedItem}"
+                                 VirtualizingStackPanel.VirtualizationMode="Recycling"
+                                 VirtualizingStackPanel.IsVirtualizing="True"
+                                 EnableColumnVirtualization="True" EnableRowVirtualization="True" 
+                                 AlternationCount="2" IsReadOnly="True"   CanUserAddRows="False"  AutoGenerateColumns="False" > 
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Id"  Width="100" HeaderStyle="{StaticResource dgchFilter}">
+                        <DataGridTemplateColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="编号" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.HeaderTemplate>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding  Id}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Name" Width="150" HeaderStyle="{StaticResource dgchFilter}">
+                        <DataGridTemplateColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="姓名"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.HeaderTemplate>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding  Name}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Age" Width="150" HeaderStyle="{StaticResource dgchFilter}" >
+                        <DataGridTemplateColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="年龄"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.HeaderTemplate>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Age}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn> 
+                </DataGrid.Columns>
+            </DataGrid>
+            </DockPanel>
+        </GroupBox>
+       
+    </DockPanel>
+
+
+
+</Page>

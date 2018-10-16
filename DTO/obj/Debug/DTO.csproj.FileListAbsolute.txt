@@ -6,7 +6,6 @@ D:\GitHub\WPFFramework\KibaFramework\DTO\obj\Debug\DTO.pdb
 E:\GitHub\KibaFramework\DTO\bin\Debug\DTO.exe.config
 E:\GitHub\KibaFramework\DTO\bin\Debug\DTO.exe
 E:\GitHub\KibaFramework\DTO\bin\Debug\DTO.pdb
-E:\GitHub\KibaFramework\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
 E:\GitHub\KibaFramework\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 E:\GitHub\KibaFramework\DTO\obj\Debug\DTO.exe
 E:\GitHub\KibaFramework\DTO\obj\Debug\DTO.pdb
