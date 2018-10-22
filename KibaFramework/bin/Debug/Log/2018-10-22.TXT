@@ -1,0 +1,1 @@
+2018-10-22 15:06:21,062 ID:[1] ViewModel.VM_WindowMain  ~~ INFO  ~~ Start

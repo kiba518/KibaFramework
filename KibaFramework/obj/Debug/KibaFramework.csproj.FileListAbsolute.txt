@@ -99,4 +99,4 @@ E:\GitHub\KibaFramework\KibaFramework\obj\Debug\UIControl\KDataGrid.g.cs
 E:\GitHub\KibaFramework\KibaFramework\obj\Debug\UIControl\KDataGrid.baml
 E:\GitHub\KibaFramework\KibaFramework\obj\Debug\View\User\PageUserList.g.cs
 E:\GitHub\KibaFramework\KibaFramework\obj\Debug\View\User\PageUserList.baml
-E:\GitHub\KibaFramework\KibaFramework\bin\Debug\DataGridConfig.txt
+E:\GitHub\KibaFramework\KibaFramework\bin\Debug\log4net.config
