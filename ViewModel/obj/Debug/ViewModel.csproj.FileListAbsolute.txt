@@ -34,3 +34,8 @@ E:\GitHub\KibaFramework\ViewModel\obj\Debug\ViewModel.csproj.CoreCompileInputs.c
 E:\GitHub\KibaFramework\ViewModel\obj\Debug\ViewModel.csproj.CopyComplete
 E:\GitHub\KibaFramework\ViewModel\obj\Debug\ViewModel.dll
 E:\GitHub\KibaFramework\ViewModel\obj\Debug\ViewModel.pdb
+E:\GitHub\KibaFramework\ViewModel\bin\Debug\Model.dll
+E:\GitHub\KibaFramework\ViewModel\bin\Debug\log4net.dll
+E:\GitHub\KibaFramework\ViewModel\bin\Debug\AutoMapper.dll
+E:\GitHub\KibaFramework\ViewModel\bin\Debug\Model.pdb
+E:\GitHub\KibaFramework\ViewModel\bin\Debug\DataGridConfig.txt

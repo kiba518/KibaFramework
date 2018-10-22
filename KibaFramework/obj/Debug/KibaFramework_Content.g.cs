@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("dll/automapper.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("dll/log4net.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("dll/microsoft.expression.interactions.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("dll/system.windows.interactivity.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("dll/xceed.wpf.toolkit.dll")]

@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\KibaFramework\Dll\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\KibaFramework\Dll\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,7 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FilterProperty.cs" />
+    <Compile Include="Attribute\IsNullAttribute.cs" />
+    <Compile Include="AutoMapperHelper.cs" />
+    <Compile Include="Enum\ColumnControlType.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="InnerExcepiton.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ToolFunction.cs" />
   </ItemGroup>

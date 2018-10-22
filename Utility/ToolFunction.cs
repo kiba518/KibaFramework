@@ -1,15 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Utility
 {
     public class ToolFunction
     {
+        #region 反射属性
         public static object GetPropertyValue(object obj, string name)
         {
             var p = obj.GetType().GetProperty(name);
@@ -41,11 +44,8 @@ namespace Utility
         {
             return info.GetValue(obj);
         }
-
-
-
-
-
+        #endregion
+          
         #region 转换
         public static bool IsNumeric(string value)
         { 
@@ -178,6 +178,55 @@ namespace Utility
             }
 
             return def;
+        }
+
+        public static decimal ToMoney(object source)
+        { 
+            return ToMoney(source, 6);
+        }
+        public static decimal ToMoney(object source, int ii)
+        {
+            decimal d = 0;
+            if (source != null && source != System.DBNull.Value && source.ToString() != "")
+            {
+                string str = source.ToString();
+                if (str.IndexOf(".") > 0)
+                {
+                    str = str.TrimEnd('0').TrimEnd('.');
+                    string[] sarray = str.Split(new string[] { "." }, StringSplitOptions.RemoveEmptyEntries);
+                    if (sarray.Length > 1)
+                    {
+                        string s2 = sarray[1];
+                        if (s2.Length > ii)
+                        {
+                            s2 = s2.Substring(0, ii);
+                        }
+                        str = sarray[0] + "." + s2;
+                    }
+                }
+                decimal.TryParse(str, out d);
+            }
+            return d;
+        }
+        #endregion
+
+        #region 序列化
+        public static T DeSerializerFromFile<T>(string path)
+        {
+            XmlSerializer ser = new XmlSerializer(typeof(T));
+            FileStream fs = new FileStream(path, FileMode.Open);
+            StreamReader mem = new StreamReader(fs);
+            var obj = (T)ser.Deserialize(mem);
+            mem.Close();
+            return obj;
+        }
+
+        public static void SerializerToFile<T>(T obj, string savePath)
+        {
+            XmlSerializer ser = new XmlSerializer(typeof(T));
+            FileStream fs = new FileStream(savePath, FileMode.Create);
+            ser.Serialize(fs, obj);
+            fs.Close();
         }
         #endregion
     }

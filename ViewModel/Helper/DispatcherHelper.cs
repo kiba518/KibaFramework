@@ -73,6 +73,20 @@ namespace ViewModel
             }
             catch
             { }
-        } 
+        }
+        public static void DoMenthodByDispatcher<T>(Action<T> action, T obj)
+        {
+            UI_Dispatcher.BeginInvoke(new Action(() =>
+            {
+                action(obj);
+            }), DispatcherPriority.Normal);
+        }
+        public static void DoMenthodByDispatcher(Action action)
+        {
+            UI_Dispatcher.BeginInvoke(new Action(() =>
+            {
+                action();
+            }), DispatcherPriority.Normal);
+        }
     }
 }

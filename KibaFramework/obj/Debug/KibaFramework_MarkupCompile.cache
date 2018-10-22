@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 E:\GitHub\KibaFramework\KibaFramework\App.xaml
-12-1412837953
-31913082103
-15-929343374
-181345680150
-Theme\Theme.xaml;UIControl\KibaDataGrid.xaml;View\Control\PageDataGridAdvanced.xaml;View\Control\PageDataGridMid.xaml;View\Control\PageDataGrid.xaml;View\Control\PageComboBox.xaml;View\Control\PageCheckBox.xaml;View\Control\PageTextBox.xaml;View\PageMain.xaml;View\User\PageUser.xaml;View\User\WindowCreateUser.xaml;View\WindowMain.xaml;
+131296096170
+5-1874067902
+18-334537524
+21-73890321
+Theme\Theme.xaml;UIControl\KDataGrid.xaml;View\User\PageUserList.xaml;View\Control\PageDataGridAdvanced.xaml;View\Control\PageDataGridMid.xaml;View\Control\PageDataGrid.xaml;View\Control\PageComboBox.xaml;View\Control\PageCheckBox.xaml;View\Control\PageTextBox.xaml;View\PageMain.xaml;View\User\PageUser.xaml;View\User\WindowCreateUser.xaml;View\WindowMain.xaml;
 
 False
 

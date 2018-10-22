@@ -11,11 +11,30 @@ using System.Data;
 using System.Threading;
 using System.Reflection;
 using System.Collections.ObjectModel;
+using Model;
 
 namespace ViewModel
 {
-  
-    public class DataGrid<T> : Control<T>
+    public interface IDataGrid
+    {
+        ObservableCollection<Object> ItemsSource { get; }
+        Object SelectedItem { get; }
+        Object Condition { get; }
+
+        event Action<Object> ItemsSourceChange;
+        string DataGridName { get; set; }
+
+        Action<Object, Object, Object> TextChange { get; set; }
+        Action<Object, Object, Object, Object, Object> TextLostFocus { get; set; }
+        Action<Object> AllCheck { get; set; }
+        Action ExcuteItemsSourceChange { get; set; }
+        string DetailVisibility { get; set; }
+        List<Object> DetailSource { get; set; }
+        bool IsBusyDetail { get; set; }
+
+    }
+
+    public class DataGrid<T> : Control<T>, IDataGrid
     {
         private Action<T> LoadAction = null;
         public Action<T> SelectCallBack = null;
@@ -173,7 +192,11 @@ namespace ViewModel
                 {
                     SelectedItem = _ItemsSource.First();
                 }
-                OnPropertyChanged(); 
+                OnPropertyChanged();
+                if (ItemsSourceChange != null)
+                {
+                    ItemsSourceChange(this);
+                }
             }
         }
         public void SetItemsSource(List<T> itemSource)
@@ -784,6 +807,96 @@ namespace ViewModel
             }
             _ItemsSourceView.Refresh();
         }
+        #endregion
+
+        #region IDataGrid 
+        ObservableCollection<object> IDataGrid.ItemsSource
+        {
+            get
+            {
+                ObservableCollection<Object> ret = new ObservableCollection<Object>();
+                foreach (var item in this.ItemsSource)
+                {
+                    ret.Add(item);
+                }
+                return ret;
+            }
+        }
+
+        object IDataGrid.SelectedItem
+        {
+            get
+            {
+                return SelectedItem;
+            }
+
+        }
+
+        object IDataGrid.Condition
+        {
+            get
+            {
+                return Condition;
+            }
+
+        }
+
+
+        public event Action<Object> ItemsSourceChange;
+        public void ChangeItemsSource()
+        {
+            if (ExcuteItemsSourceChange != null)
+            {
+                ExcuteItemsSourceChange();
+            }
+        }
+        public string DataGridName { get; set; }
+
+        /// <summary>
+        /// 英文名,类型,修改值
+        /// </summary>
+        public Action<Object, Object, Object> TextChange { get; set; }
+
+        public Action<Object, Object, Object, Object, Object> TextLostFocus { get; set; }
+
+        public Action<Object> AllCheck { get; set; }
+
+
+        public List<Object> _DetailSource;
+        public List<Object> DetailSource
+        {
+            get { return _DetailSource; }
+            set
+            {
+                _DetailSource = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool _IsBusyDetail;
+        public bool IsBusyDetail
+        {
+            get { return _IsBusyDetail; }
+            set
+            {
+                _IsBusyDetail = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string _DetailVisibility;
+        public string DetailVisibility
+        {
+            get { return _DetailVisibility; }
+            set
+            {
+                _DetailVisibility = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        public Action ExcuteItemsSourceChange { get; set; }
         #endregion
     }
 }

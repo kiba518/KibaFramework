@@ -84,6 +84,13 @@
                                 </ControlTemplate>
                             </TreeViewItem.Template>
                         </TreeViewItem>
+                        <TreeViewItem>
+                            <TreeViewItem.Template>
+                                <ControlTemplate>
+                                    <Button HorizontalAlignment="Left" Content="UI控件-用户信息" Command="{Binding ChangeFrameSourceCommand}" CommandParameter="PageUserList"  Style="{StaticResource NullButton}"></Button>
+                                </ControlTemplate>
+                            </TreeViewItem.Template>
+                        </TreeViewItem>
                         
                     </TreeView>
                 </DockPanel>

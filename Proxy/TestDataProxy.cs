@@ -1,9 +1,11 @@
 ﻿using DTO;
+using Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Utility;
 
 namespace Proxy
 {
@@ -77,6 +79,12 @@ namespace Proxy
             List<User> resultList = tempList.OrderByDescending(p => p.Id).Skip((currentPage - 1) * skipNumber).Take(skipNumber).ToList();
             int count = userList.Count;
             callback(resultList, count, "查询成功");
+        }
+
+        public DataGridConfig GetDataGridConfig()
+        {
+            string filePath = Environment.CurrentDirectory + @"\DataGridConfig.txt";
+            return ToolFunction.DeSerializerFromFile<DataGridConfig>(filePath); 
         }
     }
 }

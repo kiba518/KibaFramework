@@ -30,8 +30,46 @@
             <Button  Content="GO"  Command="{Binding JumpCommand}" Width="40" Height="20" Margin="5,0,0,0" VerticalAlignment="Top" />
         </StackPanel>
         <GroupBox DockPanel.Dock="Top" Header="DataGrid" Margin="10,0,0,0" >
-            <DataGrid  Margin="5" FontSize="12" ItemsSource="{Binding TestDataGrid.ItemsSource}" AutoGenerateColumns="True"
-                               SelectedItem="{Binding TestDataGrid.SelectedItem}" > 
+            <DataGrid  Margin="5" FontSize="12" ItemsSource="{Binding TestDataGrid.ItemsSource}" AutoGenerateColumns="False" CanUserAddRows="False"
+                               SelectedItem="{Binding TestDataGrid.SelectedItem}" >
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Id"  Width="100" >
+                        <DataGridTemplateColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="编号" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.HeaderTemplate>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding  Id}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Name" Width="150" >
+                        <DataGridTemplateColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="姓名"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.HeaderTemplate>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding  Name}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Age" Width="150" >
+                        <DataGridTemplateColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="年龄"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.HeaderTemplate>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Age}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
             </DataGrid> 
         </GroupBox>
        

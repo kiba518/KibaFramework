@@ -1,0 +1,14 @@
+﻿<Page x:Class="KibaFramework.PageUserList"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:toolkit="http://schemas.xceed.com/wpf/xaml/toolkit" 
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"  
+      xmlns:pv="clr-namespace:KibaFramework"  
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="1280"  Background="#FFF6FCFF"
+	Title="用户列表"> 
+        <pv:KDataGrid  Margin="10,10,10,10" DataContext="{Binding DataGrid,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" > 
+        </pv:KDataGrid>  
+</Page>

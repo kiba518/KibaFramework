@@ -48,6 +48,19 @@
       <Project>{c62618f5-ae8f-4e7c-8c2e-6bcf89cee220}</Project>
       <Name>DTO</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{9a7716b3-b027-4a21-84cd-a0c1d861520f}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utility\Utility.csproj">
+      <Project>{135fcb21-a33c-4046-8537-46b1c05a010d}</Project>
+      <Name>Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataGridConfig.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

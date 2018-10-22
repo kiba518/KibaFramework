@@ -37,6 +37,10 @@
     <ApplicationIcon>logo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Dll\Microsoft.Expression.Interactions.dll</HintPath>
@@ -70,8 +74,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="UIControl\KibaDataGrid.xaml.cs">
-      <DependentUpon>KibaDataGrid.xaml</DependentUpon>
+    <Compile Include="UIControl\KDataGrid.xaml.cs">
+      <DependentUpon>KDataGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewConvert\NumberViewConvert.cs" />
+    <Compile Include="ViewConvert\RowDetailViewConvert.cs" />
+    <Compile Include="View\User\PageUserList.xaml.cs">
+      <DependentUpon>PageUserList.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Control\PageDataGridAdvanced.xaml.cs">
       <DependentUpon>PageDataGridAdvanced.xaml</DependentUpon>
@@ -108,7 +117,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UIControl\KibaDataGrid.xaml">
+    <Page Include="UIControl\KDataGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\User\PageUserList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -174,6 +187,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="log4net.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -183,6 +197,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{9a7716b3-b027-4a21-84cd-a0c1d861520f}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utility\Utility.csproj">
+      <Project>{135fcb21-a33c-4046-8537-46b1c05a010d}</Project>
+      <Name>Utility</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ViewModel\ViewModel.csproj">
       <Project>{9a4eda11-ede7-45b4-aee3-8cb3d090cda1}</Project>
       <Name>ViewModel</Name>
@@ -199,6 +221,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Dll\AutoMapper.dll" />
+    <Content Include="Dll\log4net.dll" />
     <Content Include="Dll\Microsoft.Expression.Interactions.dll" />
     <Content Include="Dll\System.Windows.Interactivity.dll" />
     <Content Include="Dll\Xceed.Wpf.Toolkit.dll" />

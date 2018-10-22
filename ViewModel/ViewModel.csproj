@@ -45,6 +45,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helper\DataGridHelper.cs" />
+    <Compile Include="Helper\ProxyHelper.cs" />
+    <Compile Include="Static\StaticData.cs" />
     <Compile Include="VM\Base\BaseCommand.cs" />
     <Compile Include="VM\Base\BaseViewModel.cs" />
     <Compile Include="DataControl\CheckBox.cs" />
@@ -64,6 +67,7 @@
     <Compile Include="VM\Control\VM_PageComboBox.cs" />
     <Compile Include="VM\Control\VM_PageCheckBox.cs" />
     <Compile Include="VM\Control\VM_PageTextBox.cs" />
+    <Compile Include="VM\User\VM_PageUserList.cs" />
     <Compile Include="VM\User\VM_PageUser.cs" />
     <Compile Include="VM\User\VM_WindowCreateUser.cs" />
     <Compile Include="VM\VM_PageMain.cs" />
@@ -74,6 +78,10 @@
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{c62618f5-ae8f-4e7c-8c2e-6bcf89cee220}</Project>
       <Name>DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{9a7716b3-b027-4a21-84cd-a0c1d861520f}</Project>
+      <Name>Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\Proxy\Proxy.csproj">
       <Project>{c72113b6-d02c-4821-a3ca-3b903aad98bb}</Project>

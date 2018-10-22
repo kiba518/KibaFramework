@@ -13,3 +13,10 @@ E:\GitHub\KibaFramework\Proxy\obj\Debug\Proxy.csproj.CoreCompileInputs.cache
 E:\GitHub\KibaFramework\Proxy\obj\Debug\Proxy.csproj.CopyComplete
 E:\GitHub\KibaFramework\Proxy\obj\Debug\Proxy.dll
 E:\GitHub\KibaFramework\Proxy\obj\Debug\Proxy.pdb
+E:\GitHub\KibaFramework\Proxy\bin\Debug\DataGridConfig.txt
+E:\GitHub\KibaFramework\Proxy\bin\Debug\Model.dll
+E:\GitHub\KibaFramework\Proxy\bin\Debug\Utility.dll
+E:\GitHub\KibaFramework\Proxy\bin\Debug\log4net.dll
+E:\GitHub\KibaFramework\Proxy\bin\Debug\AutoMapper.dll
+E:\GitHub\KibaFramework\Proxy\bin\Debug\Model.pdb
+E:\GitHub\KibaFramework\Proxy\bin\Debug\Utility.pdb

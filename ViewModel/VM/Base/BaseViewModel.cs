@@ -14,11 +14,12 @@ using System.Data;
 using System.Windows.Threading;
 using System.Windows.Controls;
 using System.Runtime.CompilerServices;
+using Proxy;
 
 namespace ViewModel
 {
     public class BaseViewModel : INotifyPropertyChanged
-    {
+    { 
         public event PropertyChangedEventHandler PropertyChanged;
         public const string UINameSapce = "KibaFramework";
         public string UIElementName = "";

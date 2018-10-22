@@ -50,8 +50,10 @@ namespace ViewModel
                 case "PageDataGridAdvanced":
                     FrameSource = new VM_PageDataGridAdvanced().UIElement as Page;
                     break; 
-
-
+                case "PageUserList":
+                    FrameSource = new VM_PageUserList().UIElement as Page;
+                    break; 
+                    
 
            }
         }
