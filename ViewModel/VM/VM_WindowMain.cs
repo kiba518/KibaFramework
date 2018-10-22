@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using Utility;
 
 namespace ViewModel
 {
@@ -60,6 +61,7 @@ namespace ViewModel
 
         public VM_WindowMain()
         {
+            Logger.Info("Start");
             FrameSource = new VM_PageMain().UIElement as Page;
         }
     }
