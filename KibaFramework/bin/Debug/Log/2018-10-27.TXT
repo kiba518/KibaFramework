@@ -1,0 +1,7 @@
+2018-10-27 09:04:00,310 ID:[1] ViewModel.VM_WindowMain  ~~ INFO  ~~ Start
+2018-10-27 09:15:59,749 ID:[1] ViewModel.VM_WindowMain  ~~ INFO  ~~ Start
+2018-10-27 10:27:54,357 ID:[1] ViewModel.VM_WindowMain  ~~ INFO  ~~ Start
+2018-10-27 10:28:35,255 ID:[1] ViewModel.VM_WindowMain  ~~ INFO  ~~ Start
+2018-10-27 10:29:21,230 ID:[1] ViewModel.VM_WindowMain  ~~ INFO  ~~ Start
+2018-10-27 10:53:18,552 ID:[1] ViewModel.VM_WindowMain  ~~ INFO  ~~ Start
+2018-10-27 10:54:07,489 ID:[1] ViewModel.VM_WindowMain  ~~ INFO  ~~ Start

@@ -223,6 +223,9 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="DataGridConfig.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Content Include="Dll\AutoMapper.dll" />
     <Content Include="Dll\log4net.dll" />
     <Content Include="Dll\Microsoft.Expression.Interactions.dll" />

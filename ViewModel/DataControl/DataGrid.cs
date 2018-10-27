@@ -553,21 +553,21 @@ namespace ViewModel
                 {
                     bool isFilter = true;
 
-                    foreach (FilterProperty pinfo in ComparePropertyList) //循环筛选出来的属性
-                            {
+                    foreach (FilterProperty pinfo in ComparePropertyList) //循环筛选出来需要比较的属性
+                    {
 
                         string columnNameEn = pinfo.PropertyName;
                         var filterValue = pinfo.PropertyValue;//过滤的值
-                                string columnType = pinfo.PropertyInfo.PropertyType.ToString().Replace("System.Nullable`1[", "").Replace("]", "").Replace("System.", "").ToLower();
+                        string columnType = pinfo.PropertyInfo.PropertyType.ToString().Replace("System.Nullable`1[", "").Replace("]", "").Replace("System.", "").ToLower();
 
 
                         if (filterValue != null)
                         {
-                                    #region 重点内容 这里开始执行真正的比较
+                            #region 重点内容 这里开始执行真正的比较
 
-                                    object rowValue = ToolFunction.GetPropertyValue(obj, pinfo.PropertyInfo);//数据行的值
+                            object rowValue = ToolFunction.GetPropertyValue(obj, pinfo.PropertyInfo);//数据行的值
 
-                                    if (rowValue == null)
+                            if (rowValue == null)
                             {
                                 if (filterValue.ToString() == "")
                                 {
@@ -582,8 +582,8 @@ namespace ViewModel
                             {
                                 isFilter = CompareValue(columnType, rowValue, filterValue, pinfo.ConditionStr);
                             }
-                                    #endregion
-                                }
+                            #endregion
+                        }
                         if (!isFilter)
                         {
                             return isFilter;
@@ -598,7 +598,6 @@ namespace ViewModel
 
                 #endregion
             }
-
         }
         public bool CompareValue(string type, object rowValue, object filterValue, string conditionStr)
         {

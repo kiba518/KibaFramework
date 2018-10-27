@@ -1,0 +1,6 @@
+E:\GitHub\KibaFramework\Model\bin\Release\Model.dll
+E:\GitHub\KibaFramework\Model\bin\Release\Model.pdb
+E:\GitHub\KibaFramework\Model\obj\Release\Model.csprojAssemblyReference.cache
+E:\GitHub\KibaFramework\Model\obj\Release\Model.csproj.CoreCompileInputs.cache
+E:\GitHub\KibaFramework\Model\obj\Release\Model.dll
+E:\GitHub\KibaFramework\Model\obj\Release\Model.pdb

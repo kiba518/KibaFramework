@@ -1,0 +1,9 @@
+E:\GitHub\KibaFramework\Utility\bin\Release\Utility.dll
+E:\GitHub\KibaFramework\Utility\bin\Release\Utility.pdb
+E:\GitHub\KibaFramework\Utility\bin\Release\AutoMapper.dll
+E:\GitHub\KibaFramework\Utility\bin\Release\log4net.dll
+E:\GitHub\KibaFramework\Utility\obj\Release\Utility.csprojAssemblyReference.cache
+E:\GitHub\KibaFramework\Utility\obj\Release\Utility.csproj.CoreCompileInputs.cache
+E:\GitHub\KibaFramework\Utility\obj\Release\Utility.csproj.CopyComplete
+E:\GitHub\KibaFramework\Utility\obj\Release\Utility.dll
+E:\GitHub\KibaFramework\Utility\obj\Release\Utility.pdb

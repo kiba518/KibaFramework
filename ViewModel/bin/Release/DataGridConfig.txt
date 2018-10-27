@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<DataGridConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ColumnConfig>
+    <ColumnConfig>
+      <IsChecked>false</IsChecked>
+      <operation>0</operation>
+      <ColumnPreImage />
+      <ColumnId>1051</ColumnId>
+      <DataGridId>0</DataGridId>
+      <ColumnNameCN>全选</ColumnNameCN>
+      <ColumnNameEN>Check</ColumnNameEN>
+      <ColumnControlType>3</ColumnControlType>
+      
+      <HasEnter>false</HasEnter>
+      <Index>0</Index>
+      <HasAllCheck>true</HasAllCheck>
+      <Width>40</Width>
+      <IsVisibility>true</IsVisibility>
+    </ColumnConfig>
+    <ColumnConfig>
+      <IsChecked>false</IsChecked>
+      <operation>0</operation>
+      <ColumnPreImage />
+      <ColumnId>1052</ColumnId>
+      <DataGridId>0</DataGridId>
+      <ColumnNameCN>姓名</ColumnNameCN>
+      <ColumnNameEN>Name</ColumnNameEN>
+      <ColumnControlType>0</ColumnControlType>
+      
+      <HasEnter>false</HasEnter>
+      <Index>1</Index>
+      <HasAllCheck>false</HasAllCheck>
+      <Width>80</Width>
+      <ViewConvert />
+      <IsVisibility>true</IsVisibility>
+    </ColumnConfig>
+    <ColumnConfig>
+      <IsChecked>false</IsChecked>
+      <operation>0</operation>
+      <ColumnPreImage />
+      <ColumnId>1053</ColumnId>
+      <DataGridId>0</DataGridId>
+      <ColumnNameCN>年龄</ColumnNameCN>
+      <ColumnNameEN>Age</ColumnNameEN>
+      <ColumnControlType>1</ColumnControlType>
+     
+      <HasEnter>true</HasEnter>
+      <Index>2</Index>
+      <HasAllCheck>false</HasAllCheck>
+      <Width>80</Width>
+      <IsVisibility>true</IsVisibility>
+    </ColumnConfig>
+    <ColumnConfig>
+      <IsChecked>false</IsChecked>
+      <operation>0</operation>
+      <ColumnPreImage />
+      <ColumnId>1054</ColumnId>
+      <DataGridId>0</DataGridId>
+      <ColumnNameCN>Id</ColumnNameCN>
+      <ColumnNameEN>Id</ColumnNameEN>
+      <ColumnControlType>0</ColumnControlType>
+     
+      <HasEnter>false</HasEnter>
+      <Index>3</Index>
+      <HasAllCheck>false</HasAllCheck>
+      <Width>80</Width>
+      <DoubleViewColumnNameEN></DoubleViewColumnNameEN>
+      <IsVisibility>true</IsVisibility>
+      <Pretext>ID：</Pretext>
+      <DoublePretext></DoublePretext>
+    </ColumnConfig>
+   
+  </ColumnConfig>
+  <DataGridId>171</DataGridId>
+  <DataGridTemplateName>用户信息列表</DataGridTemplateName>
+  <HasFilter>true</HasFilter>
+  <HasPaging>true</HasPaging>
+  <CompanyId>1</CompanyId>
+  <UserId>1</UserId>
+  <HasNo>false</HasNo>
+  <FrozenColumnCount>1</FrozenColumnCount>
+  <HideControlRow>false</HideControlRow>
+</DataGridConfig>

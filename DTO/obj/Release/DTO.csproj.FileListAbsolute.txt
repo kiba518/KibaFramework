@@ -1,0 +1,6 @@
+E:\GitHub\KibaFramework\DTO\bin\Release\DTO.exe.config
+E:\GitHub\KibaFramework\DTO\bin\Release\DTO.exe
+E:\GitHub\KibaFramework\DTO\bin\Release\DTO.pdb
+E:\GitHub\KibaFramework\DTO\obj\Release\DTO.csproj.CoreCompileInputs.cache
+E:\GitHub\KibaFramework\DTO\obj\Release\DTO.exe
+E:\GitHub\KibaFramework\DTO\obj\Release\DTO.pdb
