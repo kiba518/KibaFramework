@@ -5,3 +5,4 @@
 《【我们一起写框架】MVVM的WPF框架（二）—绑定》https://www.cnblogs.com/kiba/p/9610364.html   
 《【我们一起写框架】MVVM的WPF框架（三）—数据控件》https://www.cnblogs.com/kiba/p/9648808.html   
 《【我们一起写框架】MVVM的WPF框架（四）—DataGrid》https://www.cnblogs.com/kiba/p/9753893.html   
+《【我们一起写框架】MVVM的WPF框架（五）—完结篇》https://www.cnblogs.com/kiba/p/9860135.html  
