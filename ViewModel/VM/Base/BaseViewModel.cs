@@ -15,6 +15,7 @@ using System.Windows.Threading;
 using System.Windows.Controls;
 using System.Runtime.CompilerServices;
 using Proxy;
+using System.Windows.Media;
 
 namespace ViewModel
 {
@@ -144,6 +145,17 @@ namespace ViewModel
             {
                 throw new Exception("元素类型不正确");
             }
+        }
+        #endregion
+
+        #region 窗体控件操作
+        public UICT GetUIControl<UICT>() where UICT : Visual
+        {
+            return VisualHelper.GetVisualChild<UICT>(UIElement);
+        }
+        public UICT FindVisualChildByName<UICT>(string name) where UICT : Visual
+        {
+            return UIElement.FindName(name) as UICT; 
         }
         #endregion
 
