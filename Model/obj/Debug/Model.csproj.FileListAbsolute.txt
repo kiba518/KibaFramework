@@ -1,6 +1,0 @@
-E:\GitHub\KibaFramework\Model\obj\Debug\Model.csprojAssemblyReference.cache
-E:\GitHub\KibaFramework\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
-E:\GitHub\KibaFramework\Model\bin\Debug\Model.dll
-E:\GitHub\KibaFramework\Model\bin\Debug\Model.pdb
-E:\GitHub\KibaFramework\Model\obj\Debug\Model.dll
-E:\GitHub\KibaFramework\Model\obj\Debug\Model.pdb
