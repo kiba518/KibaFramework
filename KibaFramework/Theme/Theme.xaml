@@ -2345,10 +2345,8 @@
                         <Rectangle x:Name="BackgroundGradientOver" Fill="{StaticResource hoverGradient}" Stroke="{StaticResource hoverStroke}" RadiusX="2" RadiusY="2"  Opacity="0"/>
                         <Rectangle x:Name="BackgroundGradientSelected" Fill="{StaticResource BtnOverFill}" Stroke="{StaticResource selectedStroke}" RadiusX="2" RadiusY="2" Opacity="0"/>
                         <Rectangle x:Name="BackgroundHighlight" Margin="1" Stroke="#A0FFFFFF" RadiusX="1" RadiusY="1"/>
-                        <ContentPresenter
+                       <ContentPresenter
 	                        	x:Name="contentPresenter"
-	                        	Content="{TemplateBinding Content}"
-	                        	ContentTemplate="{TemplateBinding ContentTemplate}"
 	                        	HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
 	                        	Margin="{TemplateBinding Padding}"/>
                     </Grid>
