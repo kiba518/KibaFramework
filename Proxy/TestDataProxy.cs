@@ -77,7 +77,7 @@ namespace Proxy
             #endregion
 
             List<User> resultList = tempList.OrderByDescending(p => p.Id).Skip((currentPage - 1) * skipNumber).Take(skipNumber).ToList();
-            int count = userList.Count;
+            int count = resultList.Count;
             callback(resultList, count, "查询成功");
         }
 
